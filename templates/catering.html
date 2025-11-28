@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Catering - Order Cooked Foods{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Catering Service</h1>
+    <p>Order nutritionally balanced meals designed for women in pre-menopause and menopause</p>
+</section>
+
+<div class="catering-container">
+    <section class="menu-section">
+        <h2>Our Menu</h2>
+        <p class="menu-intro">All our dishes are carefully crafted to support hormonal balance, bone health, and overall wellness.</p>
+        
+        <div class="menu-grid">
+            {% for item in menu_items %}
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <h3>{{ item.name }}</h3>
+                    <span class="price">${{ "%.2f"|format(item.price) }}</span>
+                </div>
+                <p class="menu-category">{{ item.category }}</p>
+                <p class="menu-description">{{ item.description }}</p>
+                <div class="menu-tags">
+                    {% for tag in item.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="order-section">
+        <h2>Place Your Order</h2>
+        <p>Fill out the form below to customize your catering order based on your dietary needs and health goals.</p>
+        
+        <form method="POST" class="catering-form">
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="Enter your delivery address"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Health & Dietary Information</h3>
+                <div class="form-group">
+                    <label for="stage">Current Stage</label>
+                    <select id="stage" name="stage">
+                        <option value="">Select your stage</option>
+                        <option value="pre-menopause">Pre-Menopause</option>
+                        <option value="perimenopause">Perimenopause</option>
+                        <option value="menopause">Menopause</option>
+                        <option value="post-menopause">Post-Menopause</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dietary_needs">Dietary Restrictions/Allergies</label>
+                    <textarea id="dietary_needs" name="dietary_needs" rows="3" placeholder="Please list any allergies, intolerances, or dietary restrictions (e.g., gluten-free, dairy-free, vegetarian)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="health_goals">Health Goals</label>
+                    <textarea id="health_goals" name="health_goals" rows="3" placeholder="Tell us about your health goals (e.g., managing hot flashes, bone health, energy levels, weight management)"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Select Menu Items</h3>
+                <p class="form-help">Choose the items you'd like to order:</p>
+                <div class="checkbox-group">
+                    {% for item in menu_items %}
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="menu_items" value="{{ item.id }}">
+                        <span>{{ item.name }} - ${{ "%.2f"|format(item.price) }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Additional Preferences</h3>
+                <div class="form-group">
+                    <label for="meal_frequency">Meal Frequency</label>
+                    <select id="meal_frequency" name="meal_frequency">
+                        <option value="one-time">One-Time Order</option>
+                        <option value="weekly">Weekly Delivery</option>
+                        <option value="bi-weekly">Bi-Weekly Delivery</option>
+                        <option value="monthly">Monthly Delivery</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="special_requests">Special Requests</label>
+                    <textarea id="special_requests" name="special_requests" rows="3" placeholder="Any special requests or notes for your order"></textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-large">Submit Order</button>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

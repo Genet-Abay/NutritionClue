@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>{{ recipe.name }}</h1>
+    <p>{{ recipe.description }}</p>
+</section>
+
+<div class="recipe-detail-container">
+    <div class="recipe-detail-content">
+        <section class="recipe-section">
+            <h2>Health Benefits</h2>
+            <p class="recipe-benefits-text">{{ recipe.benefits }}</p>
+        </section>
+
+        <section class="recipe-section">
+            <h2>Ingredients</h2>
+            <ul class="recipe-ingredients-detail">
+                {% for ingredient in recipe.ingredients %}
+                <li>
+                    <span class="ingredient-check">✓</span>
+                    {{ ingredient }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="recipe-section">
+            <h2>Nutritional Information</h2>
+            <p class="nutrition-note">This recipe is specifically designed for women in pre-menopause and menopause, providing essential nutrients that support:</p>
+            <ul class="nutrition-benefits">
+                <li>Hormonal balance</li>
+                <li>Bone health</li>
+                <li>Energy levels</li>
+                <li>Overall well-being</li>
+            </ul>
+        </section>
+
+        <div class="recipe-actions">
+            <a href="{{ url_for('recipes') }}" class="btn btn-secondary">← Back to Recipes</a>
+            <a href="{{ url_for('catering') }}" class="btn btn-primary">Order This Dish</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
