@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Community Discussion{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Community Discussion</h1>
+    <p>Connect with other women, share experiences, and support each other on your wellness journey</p>
+</section>
+
+<div class="community-container">
+    <section class="community-intro">
+        <p>Welcome to our community! This is a safe space to share your experiences, ask questions, and connect with other women going through similar journeys. Together, we support each other in achieving better health and well-being.</p>
+    </section>
+
+    <section class="new-discussion-section">
+        <h2>Start a New Discussion</h2>
+        <form method="POST" class="discussion-form">
+            <div class="form-group">
+                <label for="title">Discussion Title *</label>
+                <input type="text" id="title" name="title" required placeholder="Enter a title for your discussion">
+            </div>
+            
+            <div class="form-group">
+                <label for="content">Your Message *</label>
+                <textarea id="content" name="content" rows="5" required placeholder="Share your thoughts, questions, or experiences..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Post Discussion</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="discussions-section">
+        <h2>Recent Discussions</h2>
+        <div class="discussions-list">
+            {% for discussion in discussions %}
+            <div class="discussion-card">
+                <div class="discussion-header">
+                    <h3>{{ discussion.title }}</h3>
+                    <div class="discussion-meta">
+                        <span class="discussion-author">👤 {{ discussion.author }}</span>
+                        <span class="discussion-date">📅 {{ discussion.date }}</span>
+                        <span class="discussion-replies">💬 {{ discussion.replies }} replies</span>
+                    </div>
+                </div>
+                <p class="discussion-content">{{ discussion.content }}</p>
+                <button class="btn btn-secondary btn-small">View Discussion</button>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="community-guidelines">
+        <h2>Community Guidelines</h2>
+        <ul class="guidelines-list">
+            <li><strong>Be Respectful:</strong> Treat all members with kindness and respect.</li>
+            <li><strong>Share Supportively:</strong> Offer encouragement and helpful advice.</li>
+            <li><strong>Stay On Topic:</strong> Keep discussions relevant to women's health and nutrition.</li>
+            <li><strong>Protect Privacy:</strong> Don't share personal medical information.</li>
+            <li><strong>Seek Professional Advice:</strong> For medical concerns, always consult a healthcare provider.</li>
+        </ul>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Recipes{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Recipes</h1>
+    <p>Discover nutritious recipes with detailed ingredients designed for women's health during menopause</p>
+</section>
+
+<div class="recipes-container">
+    <section class="recipes-intro">
+        <p>Each recipe is carefully crafted to provide essential nutrients that support hormonal balance, bone health, and overall well-being during pre-menopause and menopause.</p>
+    </section>
+
+    <div class="recipes-grid">
+        {% for recipe in recipes %}
+        <div class="recipe-card">
+            <div class="recipe-card-content">
+                <h3>{{ recipe.name }}</h3>
+                <p class="recipe-description">{{ recipe.description }}</p>
+                
+                <div class="recipe-benefits">
+                    <span class="benefits-label">🌟 Benefits:</span>
+                    <p>{{ recipe.benefits }}</p>
+                </div>
+                
+                <div class="recipe-ingredients">
+                    <h4>Ingredients:</h4>
+                    <ul class="ingredients-list">
+                        {% for ingredient in recipe.ingredients %}
+                        <li>{{ ingredient }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}" class="btn btn-secondary">View Full Recipe</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

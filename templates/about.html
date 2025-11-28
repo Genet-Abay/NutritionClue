@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>About NutritionClue</h1>
+    <p>Supporting women's health through nutrition during life's important transitions</p>
+</section>
+
+<div class="about-container">
+    <section class="about-section">
+        <h2>Our Mission</h2>
+        <p>At NutritionClue, we believe that every woman deserves access to nutritional guidance that supports her through the unique challenges of pre-menopause and menopause. Our mission is to empower women with the knowledge, tools, and community support needed to thrive during this important phase of life.</p>
+    </section>
+
+    <section class="about-section">
+        <h2>What We Offer</h2>
+        <div class="offerings-grid">
+            <div class="offering-item">
+                <h3>🍽️ Catering Services</h3>
+                <p>Fresh, nutritionally balanced meals delivered to your door, designed specifically to support hormonal health and overall well-being.</p>
+            </div>
+            <div class="offering-item">
+                <h3>👩‍🍳 Cooking Lessons</h3>
+                <p>Expert-led cooking tutorials that teach you how to prepare hormone-friendly meals in your own kitchen.</p>
+            </div>
+            <div class="offering-item">
+                <h3>📖 Recipe Collection</h3>
+                <p>A curated collection of recipes with detailed ingredients and nutritional benefits tailored for women's health.</p>
+            </div>
+            <div class="offering-item">
+                <h3>🏃‍♀️ Physical Activity Guide</h3>
+                <p>Exercise recommendations designed for menopause, focusing on bone health, flexibility, and overall fitness.</p>
+            </div>
+            <div class="offering-item">
+                <h3>💬 Community Support</h3>
+                <p>A welcoming community where women can share experiences, ask questions, and support each other.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2>Our Approach</h2>
+        <p>We take a holistic, science-based approach to women's nutrition. Our recommendations are:</p>
+        <ul class="approach-list">
+            <li><strong>Evidence-Based:</strong> Grounded in nutritional science and research on women's health</li>
+            <li><strong>Personalized:</strong> Tailored to individual needs, preferences, and health goals</li>
+            <li><strong>Practical:</strong> Easy to implement in your daily life</li>
+            <li><strong>Supportive:</strong> Backed by a community of women on similar journeys</li>
+        </ul>
+    </section>
+
+    <section class="about-section">
+        <h2>Why Menopause Nutrition Matters</h2>
+        <p>During pre-menopause and menopause, a woman's nutritional needs change significantly. Proper nutrition can help:</p>
+        <ul class="benefits-list">
+            <li>Manage hot flashes and night sweats</li>
+            <li>Maintain bone density and prevent osteoporosis</li>
+            <li>Support heart health</li>
+            <li>Manage weight changes</li>
+            <li>Improve mood and reduce anxiety</li>
+            <li>Boost energy levels</li>
+            <li>Support better sleep</li>
+        </ul>
+    </section>
+
+    <section class="about-section cta-section">
+        <h2>Start Your Journey</h2>
+        <p>Ready to take control of your health through nutrition? Explore our services and join our community today.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('catering') }}" class="btn btn-primary">Order Meals</a>
+            <a href="{{ url_for('cooking_lessons') }}" class="btn btn-secondary">Start Learning</a>
+            <a href="{{ url_for('community') }}" class="btn btn-secondary">Join Community</a>
+        </div>
+    </section>
+</div>
+{% endblock %}

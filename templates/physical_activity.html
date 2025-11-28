@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Physical Activity{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Physical Activity</h1>
+    <p>Stay active with exercise routines designed specifically for women during pre-menopause and menopause</p>
+</section>
+
+<div class="activity-container">
+    <section class="activity-intro">
+        <p>Regular physical activity is essential during menopause. It helps manage weight, strengthens bones, improves mood, and reduces many menopause symptoms. Our recommended activities are gentle yet effective, suitable for all fitness levels.</p>
+    </section>
+
+    <section class="activities-section">
+        <h2>Recommended Activities</h2>
+        
+        <div class="activities-grid">
+            {% for activity in activities %}
+            <div class="activity-card">
+                <div class="activity-header">
+                    <h3>{{ activity.name }}</h3>
+                    <span class="activity-intensity intensity-{{ activity.intensity|lower|replace(' ', '-') }}">{{ activity.intensity }}</span>
+                </div>
+                <p class="activity-description">{{ activity.description }}</p>
+                <div class="activity-meta">
+                    <span class="activity-duration">⏱️ {{ activity.duration }}</span>
+                </div>
+                <div class="activity-benefits">
+                    <h4>Benefits:</h4>
+                    <ul>
+                        {% for benefit in activity.benefits %}
+                        <li>✓ {{ benefit }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="tips-section">
+        <h2>Exercise Tips for Menopause</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4>🌡️ Stay Cool</h4>
+                <p>Exercise in cooler environments to manage hot flashes. Consider morning workouts or air-conditioned spaces.</p>
+            </div>
+            <div class="tip-card">
+                <h4>💧 Stay Hydrated</h4>
+                <p>Drink plenty of water before, during, and after exercise to stay hydrated and help regulate body temperature.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🦴 Focus on Bones</h4>
+                <p>Include weight-bearing exercises to maintain bone density and reduce the risk of osteoporosis.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🧘 Mind-Body Connection</h4>
+                <p>Practice yoga or tai chi to reduce stress, improve balance, and support mental well-being.</p>
+            </div>
+            <div class="tip-card">
+                <h4>👂 Listen to Your Body</h4>
+                <p>Adjust intensity based on how you feel. Some days may be more challenging than others.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🔄 Stay Consistent</h4>
+                <p>Aim for at least 150 minutes of moderate activity per week. Consistency is more important than intensity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="getting-started">
+        <h2>Getting Started</h2>
+        <p>Before beginning any new exercise routine, consider these steps:</p>
+        <ol class="getting-started-list">
+            <li>Consult with your healthcare provider, especially if you have any health concerns</li>
+            <li>Start slowly and gradually increase intensity over time</li>
+            <li>Choose activities you enjoy to stay motivated</li>
+            <li>Find an exercise buddy for support and accountability</li>
+            <li>Track your progress and celebrate small wins</li>
+        </ol>
+    </section>
+</div>
+{% endblock %}

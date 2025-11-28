@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Cooking Lessons{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Cooking Lessons</h1>
+    <p>Learn to prepare nutritious meals that support your health during pre-menopause and menopause</p>
+</section>
+
+<div class="lessons-container">
+    <section class="lessons-section">
+        <h2>Available Courses</h2>
+        <p class="lessons-intro">Our cooking lessons are designed by nutritionists and professional chefs to help you master the art of preparing hormone-friendly meals.</p>
+        
+        <div class="lessons-grid">
+            {% for lesson in lessons %}
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <h3>{{ lesson.title }}</h3>
+                    <span class="lesson-level level-{{ lesson.level|lower }}">{{ lesson.level }}</span>
+                </div>
+                <p class="lesson-description">{{ lesson.description }}</p>
+                <div class="lesson-meta">
+                    <span class="lesson-duration">⏱️ {{ lesson.duration }}</span>
+                </div>
+                <div class="lesson-topics">
+                    <h4>Topics Covered:</h4>
+                    <ul>
+                        {% for topic in lesson.topics %}
+                        <li>{{ topic }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="enrollment-section">
+        <h2>Enroll in a Course</h2>
+        <p>Complete the form below to sign up for cooking lessons tailored to your needs.</p>
+        
+        <form method="POST" class="enrollment-form">
+            <div class="form-section">
+                <h3>Your Information</h3>
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Your Background</h3>
+                <div class="form-group">
+                    <label for="experience_level">Cooking Experience Level</label>
+                    <select id="experience_level" name="experience_level">
+                        <option value="beginner">Beginner - New to cooking</option>
+                        <option value="intermediate">Intermediate - Comfortable with basics</option>
+                        <option value="advanced">Advanced - Experienced cook</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="current_stage">Current Stage</label>
+                    <select id="current_stage" name="current_stage">
+                        <option value="">Select your stage</option>
+                        <option value="pre-menopause">Pre-Menopause</option>
+                        <option value="perimenopause">Perimenopause</option>
+                        <option value="menopause">Menopause</option>
+                        <option value="post-menopause">Post-Menopause</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="health_concerns">Health Concerns or Goals</label>
+                    <textarea id="health_concerns" name="health_concerns" rows="4" placeholder="Tell us about any health concerns or goals you'd like to address through nutrition (e.g., hot flashes, bone health, energy, sleep issues)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dietary_restrictions">Dietary Restrictions</label>
+                    <textarea id="dietary_restrictions" name="dietary_restrictions" rows="3" placeholder="List any allergies or dietary restrictions"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Select Lessons</h3>
+                <p class="form-help">Choose the lessons you're interested in:</p>
+                <div class="checkbox-group">
+                    {% for lesson in lessons %}
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="lessons" value="{{ lesson.id }}">
+                        <span>{{ lesson.title }} ({{ lesson.duration }}, {{ lesson.level }})</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Learning Preferences</h3>
+                <div class="form-group">
+                    <label for="preferred_schedule">Preferred Schedule</label>
+                    <select id="preferred_schedule" name="preferred_schedule">
+                        <option value="weekday-morning">Weekday Mornings</option>
+                        <option value="weekday-afternoon">Weekday Afternoons</option>
+                        <option value="weekday-evening">Weekday Evenings</option>
+                        <option value="weekend-morning">Weekend Mornings</option>
+                        <option value="weekend-afternoon">Weekend Afternoons</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="learning_goals">What do you hope to learn?</label>
+                    <textarea id="learning_goals" name="learning_goals" rows="3" placeholder="Tell us what you'd like to achieve from these lessons"></textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-large">Enroll Now</button>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

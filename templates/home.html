@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to NutritionClue</h1>
+        <p class="hero-subtitle">Your trusted partner for nutrition and wellness during pre-menopause and menopause</p>
+        <p class="hero-description">
+            We understand that your nutritional needs change during this important phase of life. 
+            Our services are designed to support your health, energy, and well-being with 
+            personalized nutrition solutions.
+        </p>
+    </div>
+</section>
+
+<section class="services-intro">
+    <div class="section-container">
+        <h2>How Can We Help You Today?</h2>
+        <p class="services-subtitle">Choose from our range of services designed specifically for women's nutritional needs</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🍽️</div>
+                <h3>Order Cooked Foods</h3>
+                <p>Fresh, nutritionally balanced meals prepared specifically for women in pre-menopause and menopause. Our catering service delivers hormone-friendly, delicious food right to your door.</p>
+                <ul class="service-features">
+                    <li>✓ Personalized meal plans</li>
+                    <li>✓ Hormone-balancing ingredients</li>
+                    <li>✓ Fresh daily delivery</li>
+                    <li>✓ Dietary accommodations</li>
+                </ul>
+                <a href="{{ url_for('catering') }}" class="btn btn-primary">Order Now</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📖</div>
+                <h3>Menus & Recipes</h3>
+                <p>Explore our collection of recipes with detailed ingredient lists, specifically curated to support your health during this transitional phase of life.</p>
+                <ul class="service-features">
+                    <li>✓ Complete ingredient lists</li>
+                    <li>✓ Nutritional benefits explained</li>
+                    <li>✓ Easy-to-follow instructions</li>
+                    <li>✓ Menopause-friendly recipes</li>
+                </ul>
+                <a href="{{ url_for('recipes') }}" class="btn btn-primary">Browse Recipes</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👩‍🍳</div>
+                <h3>Cooking Tutorials</h3>
+                <p>Learn to prepare nutritious, hormone-friendly meals with our expert-led cooking lessons. From basics to advanced techniques, we've got you covered.</p>
+                <ul class="service-features">
+                    <li>✓ Step-by-step guidance</li>
+                    <li>✓ Expert instructors</li>
+                    <li>✓ All skill levels</li>
+                    <li>✓ Interactive sessions</li>
+                </ul>
+                <a href="{{ url_for('cooking_lessons') }}" class="btn btn-primary">Start Learning</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="additional-services">
+    <div class="section-container">
+        <h2>More Ways to Support Your Health</h2>
+        
+        <div class="additional-grid">
+            <div class="additional-card">
+                <div class="additional-icon">🏃‍♀️</div>
+                <h3>Physical Activity</h3>
+                <p>Discover exercise routines tailored for women during menopause. Stay active with low-impact, effective workouts.</p>
+                <a href="{{ url_for('physical_activity') }}" class="btn btn-secondary">Explore Activities</a>
+            </div>
+
+            <div class="additional-card">
+                <div class="additional-icon">💬</div>
+                <h3>Community Discussion</h3>
+                <p>Connect with other women on similar journeys. Share experiences, tips, and support each other.</p>
+                <a href="{{ url_for('community') }}" class="btn btn-secondary">Join Community</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-choose-us">
+    <div class="section-container">
+        <h2>Why Choose NutritionClue?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <span class="benefit-icon">🔬</span>
+                <h4>Science-Based</h4>
+                <p>Our recommendations are backed by nutritional science and research on women's health.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">👩‍⚕️</span>
+                <h4>Expert-Guided</h4>
+                <p>Created with input from nutritionists specializing in women's health.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">❤️</span>
+                <h4>Supportive Community</h4>
+                <p>Join thousands of women supporting each other through this journey.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🌿</span>
+                <h4>Natural Approach</h4>
+                <p>Focus on whole foods and natural ingredients for optimal health.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

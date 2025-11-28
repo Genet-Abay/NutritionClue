@@ -1,0 +1,1236 @@
+/* NutritionClue - Main Stylesheet */
+
+/* CSS Variables */
+:root {
+    --primary-color: #8B4B8B;
+    --primary-light: #A066A0;
+    --primary-dark: #6B3B6B;
+    --secondary-color: #4A7C59;
+    --secondary-light: #5E9B6E;
+    --accent-color: #E8A87C;
+    --text-color: #333333;
+    --text-light: #666666;
+    --background-color: #F9F5F9;
+    --white: #FFFFFF;
+    --border-color: #E0D5E0;
+    --success-color: #4A7C59;
+    --error-color: #C73E3E;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+h4 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+/* Main Content */
+.main-content {
+    min-height: calc(100vh - 70px - 300px);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Sections */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.services-intro {
+    background-color: var(--white);
+}
+
+.services-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+.services-intro h2 {
+    text-align: center;
+    color: var(--primary-dark);
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+}
+
+.service-features {
+    text-align: left;
+    margin: 1.5rem 0;
+    padding-left: 0;
+}
+
+.service-features li {
+    padding: 0.5rem 0;
+    color: var(--text-light);
+}
+
+/* Additional Services */
+.additional-services {
+    background-color: var(--background-color);
+}
+
+.additional-services h2 {
+    text-align: center;
+    color: var(--primary-dark);
+}
+
+.additional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.additional-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.additional-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    background-color: var(--white);
+}
+
+.why-choose-us h2 {
+    text-align: center;
+    color: var(--primary-dark);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-light);
+    color: var(--white);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.form-section {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.form-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 75, 139, 0.1);
+}
+
+.form-help {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.checkbox-label:hover {
+    background-color: var(--background-color);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    accent-color: var(--primary-color);
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Flash Messages */
+.flash-messages {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 2rem;
+}
+
+.flash-message {
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.flash-close:hover {
+    opacity: 1;
+}
+
+/* Catering Page */
+.catering-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.menu-section {
+    margin-bottom: 3rem;
+}
+
+.menu-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.menu-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.menu-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.menu-card h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.menu-category {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.menu-description {
+    margin-bottom: 1rem;
+}
+
+.menu-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* Lessons Page */
+.lessons-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.lessons-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.lesson-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.lesson-card h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    flex: 1;
+}
+
+.lesson-level {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.level-beginner {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.level-intermediate {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.level-advanced {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.lesson-description {
+    margin-bottom: 1rem;
+}
+
+.lesson-meta {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.lesson-topics h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.lesson-topics ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.lesson-topics li {
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+/* Recipes Page */
+.recipes-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.recipes-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.recipe-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.recipe-card-content {
+    padding: 1.5rem;
+}
+
+.recipe-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.recipe-description {
+    margin-bottom: 1rem;
+}
+
+.recipe-benefits {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.benefits-label {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.recipe-benefits p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+.recipe-ingredients h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.ingredients-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.ingredients-list li {
+    background-color: var(--background-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Recipe Detail Page */
+.recipe-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.recipe-detail-content {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.recipe-section {
+    margin-bottom: 2rem;
+}
+
+.recipe-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.recipe-benefits-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.recipe-ingredients-detail {
+    padding-left: 0;
+}
+
+.recipe-ingredients-detail li {
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ingredient-check {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.nutrition-note {
+    margin-bottom: 1rem;
+}
+
+.nutrition-benefits {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.nutrition-benefits li {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.recipe-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Community Page */
+.community-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.community-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.new-discussion-section {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.new-discussion-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.discussion-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.discussions-section {
+    margin-bottom: 2rem;
+}
+
+.discussions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.discussion-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.discussion-header {
+    margin-bottom: 1rem;
+}
+
+.discussion-header h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.discussion-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.discussion-content {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.community-guidelines {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+}
+
+.community-guidelines h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.guidelines-list {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.guidelines-list li {
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+}
+
+/* Physical Activity Page */
+.activity-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.activity-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.activities-section {
+    margin-bottom: 3rem;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.activity-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.activity-card h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    flex: 1;
+}
+
+.activity-intensity {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.intensity-low {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.intensity-moderate {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.intensity-low-to-moderate {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.activity-description {
+    margin-bottom: 1rem;
+}
+
+.activity-meta {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.activity-benefits h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.activity-benefits ul {
+    padding-left: 0;
+}
+
+.activity-benefits li {
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.tips-section {
+    margin-bottom: 3rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tip-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.tip-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.getting-started {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.getting-started h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.getting-started-list {
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.getting-started-list li {
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+}
+
+/* About Page */
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-section {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.about-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.offering-item {
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+}
+
+.offering-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.approach-list,
+.benefits-list {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.approach-list li,
+.benefits-list li {
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+}
+
+.cta-section {
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 3rem 0 0 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: var(--shadow);
+        padding: 2rem 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+
+    .services-grid,
+    .additional-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-actions {
+        flex-direction: column;
+    }
+
+    .discussion-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-container {
+        padding: 2rem 1rem;
+    }
+
+    .service-card,
+    .menu-card,
+    .lesson-card,
+    .activity-card,
+    .recipe-card {
+        padding: 1.25rem;
+    }
+
+    .form-section {
+        padding: 1.5rem;
+    }
+}
